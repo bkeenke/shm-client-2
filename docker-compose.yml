@@ -1,0 +1,13 @@
+services:
+  shm-client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+    environment:
+      - SHM_URL=http://api
+      - APP_NAME=My Company
+    depends_on:
+      - api
+    restart: unless-stopped
